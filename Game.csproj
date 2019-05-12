@@ -131,6 +131,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <SplashScreen Include="Images\newlogo.png" />
     <Content Include="Track List\Click.mp3" />
     <Resource Include="Images\round.png" />
     <Resource Include="Images\MainBackground.jpg" />

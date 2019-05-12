@@ -24,7 +24,6 @@ namespace Game
     public partial class GameWindow : Window
     {
         public int score = 0;
-        public int bestscore = 0;
         Random rand = new Random();
         public DispatcherTimer timer;
         public DispatcherTimer timer2;
@@ -65,7 +64,7 @@ namespace Game
         private void TimerTick(object sender, EventArgs e)
         {
             Image img = new Image();
-            img.Source = new BitmapImage(new Uri(@"C:\Users\Sin\Downloads\round.png", UriKind.Absolute)); 
+            img.Source = new BitmapImage(new Uri($@"{Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))}\Images\round.png", UriKind.Absolute)); 
             img.Width = 150;
             img.Height = 150;
             img.Opacity = 100;
@@ -89,15 +88,11 @@ namespace Game
             img_clone = img;
             img.IsEnabled = false;
 
-            DoubleAnimation ellipse_opacity = new DoubleAnimation();
-            ellipse_opacity.From = Opacity;
-            ellipse_opacity.To = 0.1;
+            DoubleAnimation ellipse_opacity = new DoubleAnimation {From = Opacity, To = 0.1};
             ellipse_opacity.Completed += new EventHandler(ImageRemove);
             ellipse_opacity.Duration = TimeSpan.FromSeconds(0.2);
 
-            DoubleAnimation ellipse_size = new DoubleAnimation();
-            ellipse_size.From = 150;
-            ellipse_size.To = 200;
+            DoubleAnimation ellipse_size = new DoubleAnimation {To = 200, From = 150};
             ellipse_size.Completed += new EventHandler(ImageRemove);
             ellipse_size.Duration = TimeSpan.FromSeconds(0.2);
 
