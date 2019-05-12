@@ -1,0 +1,17 @@
+﻿<Window x:Class="Game.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Game"
+        mc:Ignorable="d"
+        Title="GameWindow" Height="650" Width="1100" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" MouseEnter="GameWindow_OnMouseEnter">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/GameBackground.png"></ImageBrush>
+    </Window.Background>
+    <Canvas x:Name="MainPanel">
+        <TextBlock Height="Auto" Width="Auto" Text="Score:" FontFamily="Comic Sans MS" Foreground="#FFC284FF" FontSize="25" Canvas.Left="10" Canvas.Top="10"/>
+        <TextBlock Height="30" Width="Auto" Canvas.Left="92" Canvas.Top="15" FontFamily="Comic Sans MS" Foreground="#FFC284FF" FontSize="22" x:Name="ScoreText"></TextBlock>
+        <Button Width="100" Height="30" Style="{StaticResource ButtonStyle}" Canvas.Left="990" Canvas.Top="15" Content="Back" FontSize="18" Click="Back_Click"></Button>
+    </Canvas>
+</Window>

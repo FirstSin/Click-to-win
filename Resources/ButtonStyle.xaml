@@ -27,7 +27,7 @@
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="borderColor" Storyboard.TargetProperty="Color" FillBehavior="HoldEnd">
                                             <ColorAnimationUsingKeyFrames.KeyFrames>
-                                                <LinearColorKeyFrame Value="#DD7156AC" KeyTime="0:0:0.2"></LinearColorKeyFrame>
+                                                <LinearColorKeyFrame Value="#FF714FCD" KeyTime="0:0:0.2"></LinearColorKeyFrame>
                                             </ColorAnimationUsingKeyFrames.KeyFrames>
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>

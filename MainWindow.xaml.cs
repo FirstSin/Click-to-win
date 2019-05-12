@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,22 +13,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Game
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        int musicbutton_count = 0;
-        WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
         public MainWindow()
         {
             InitializeComponent();
 
-            WMP.URL = @"D:\Visual Studio\Projects\Game\Music\song1.mp3";
-            WMP.controls.play();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -35,28 +30,23 @@ namespace Game
             this.Close();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.DragMove();
+            GameWindow gamewindow = new GameWindow();
+            gamewindow.Show();
+            this.Close();
         }
 
-        private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Settings_Click(object sender, RoutedEventArgs e)
         {
+            SettingsWindow settingswindow = new SettingsWindow();
+            settingswindow.Show();
+            this.Close();
+        }
 
-            if (musicbutton_count % 2 == 0)
-            {
-                WMP.controls.pause();
-                musicOnIcon.Visibility = Visibility.Hidden;
-                musicOffIcon.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                WMP.controls.play();
-                musicOffIcon.Visibility = Visibility.Hidden;
-                musicOnIcon.Visibility = Visibility.Visible;
-            }
-
-            musicbutton_count += 1;
+        private void MainWindow_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            this.Cursor = new Cursor($@"{Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))}\Resources\arrow.cur");
         }
     }
 }
